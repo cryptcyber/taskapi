@@ -1,0 +1,129 @@
+### Create Task
+POST http://localhost:8080/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Learn Spring Boot",
+  "completed": false
+}
+
+### Get All Tasks
+GET http://localhost:8080/api/tasks
+
+### Get Task By Id
+GET http://localhost:8080/api/tasks/1
+
+### Invalid Task
+POST http://localhost:8080/api/tasks
+Content-Type: application/json
+
+{
+  "title": "",
+  "completed": false
+}
+###
+# Get Non-Existent Task
+GET http://localhost:8080/api/tasks/4
+
+### Update Task
+PUT http://localhost:8080/api/tasks/1
+Content-Type: application/json
+
+{
+  "title": "Learn Spring Boot - Updated",
+  "completed": true
+}
+
+### Delete Task
+DELETE http://localhost:8080/api/tasks/6
+
+### Verify Delete
+GET http://localhost:8080/api/tasks/6
+
+### Test auth
+GET http://localhost:8080/auth-demo
+
+### Get Tasks
+GET http://localhost:8080/api/tasks
+Authorization: Basic ZHlsZTpwYXNzd29yZDEyMw==
+
+@basicAuth=ZHlsZTpwYXNzd29yZDEyMw==
+ 
+### Get Tasks
+GET http://localhost:8080/api/tasks/1
+Authorization: Basic {{basicAuth}}
+
+### Verification
+GET https://httpbin.org/get
+Authorization: Basic {{$base64 dyle:password123}}
+
+### Registration v1
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "password": "password123",
+  "role" : "USER"
+}
+### Registration v2
+
+POST http://localhost:8080/api/auth/register
+
+Content-Type: application/json
+
+{
+  "username": "dyle",
+  "password": "password123"
+}
+###
+
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password123",
+  "role" : "ADMIN"
+}
+
+
+### User Login
+# Token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJkeWxlIiwiaWF0IjoxNzkxNjgxNzc4LCJleHAiOjE3OTE2ODUzNzh9.WkD9Isseyot18mIEtMJcyRCianXHbVOikxIZPYbgXsT_j5NHdeo1UhnYsU_Iq2Nr
+#
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "dyle",
+  "password": "password123"
+}
+
+### Admin login
+# "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc5MTY3MTExNSwiZXhwIjoxNzkxNjc0NzE1fQ.MitR5ZlcEof9LY7BvLCQys5SPYaHQTkLCwK16KxyJpB-RZZ_h8j8Be1UePneXzhi"
+ 
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password123"
+}
+
+
+### Get Tasks
+GET http://localhost:8080/api/tasks
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJkeWxlIiwiaWF0IjoxNzkxNjgxNzc4LCJleHAiOjE3OTE2ODUzNzh9.WkD9Isseyot18mIEtMJcyRCianXHbVOikxIZPYbgXsT_j5NHdeo1UhnYsU_Iq2Nr
+
+### Get Tasks
+GET http://localhost:8080/api/tasks/
+
+### Get Tasks
+# Wrong Bearer
+GET http://localhost:8080/api/tasks
+Authorization: Bearer randome-characters-test-blash-blah-blah
+
+### 
+DELETE http://localhost:8080/api/tasks/999
+Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJkeWxlIiwiaWF0IjoxNzkxNjgxNzc4LCJleHAiOjE3OTE2ODUzNzh9.WkD9Isseyot18mIEtMJcyRCianXHbVOikxIZPYbgXsT_j5NHdeo1UhnYsU_Iq2Nr
