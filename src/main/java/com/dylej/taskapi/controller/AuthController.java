@@ -1,5 +1,7 @@
 package com.dylej.taskapi.controller;
 
+import com.dylej.taskapi.dto.LoginRequest;
+import com.dylej.taskapi.dto.LoginResponse;
 import com.dylej.taskapi.dto.RegisterRequest;
 import com.dylej.taskapi.service.AuthService;
 import jakarta.validation.Valid;
@@ -14,6 +16,15 @@ public class AuthController {
 
     public AuthController(AuthService authService) {
         this.authService = authService;
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(
+            @Valid @RequestBody LoginRequest request) {
+
+                System.out.println(">>> LOGIN ENDPOINT HIT <<<");
+                
+        return authService.login(request);
     }
 
     @PostMapping("/register")

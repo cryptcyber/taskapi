@@ -103,7 +103,7 @@ Content-Type: application/json
 ### Admin login
 # "token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc5MTY3MTExNSwiZXhwIjoxNzkxNjc0NzE1fQ.MitR5ZlcEof9LY7BvLCQys5SPYaHQTkLCwK16KxyJpB-RZZ_h8j8Be1UePneXzhi"
  
-POST http://localhost:8080/auth/login
+POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
 {
@@ -127,3 +127,24 @@ Authorization: Bearer randome-characters-test-blash-blah-blah
 ### 
 DELETE http://localhost:8080/api/tasks/999
 Authorization: Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJkeWxlIiwiaWF0IjoxNzkxNjgxNzc4LCJleHAiOjE3OTE2ODUzNzh9.WkD9Isseyot18mIEtMJcyRCianXHbVOikxIZPYbgXsT_j5NHdeo1UhnYsU_Iq2Nr
+
+
+###
+
+curl -i http://localhost:8080/api/auth/register
+
+###
+curl -i -X POST http://localhost:8080/api/auth/register
+
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{"username":"dyle","password":"password123"}
+###
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{"username":"dyle","password":"password123"}
