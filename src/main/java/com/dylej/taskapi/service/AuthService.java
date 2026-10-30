@@ -50,9 +50,6 @@ AppUser user = AppUser.builder()
                 .orElseThrow(() -> new BadCredentialsException(
                         "Invalid username or password"));
 
-        System.out.println("Username: " + request.username());
-        System.out.println("Password: " + request.password());
-        System.out.println("Encoded Password: " + user.getPassword());
         if (!passwordEncoder.matches(request.password(), user.getPassword())) {
             throw new BadCredentialsException("Invalid username or password");
         }

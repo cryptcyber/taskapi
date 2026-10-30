@@ -137,14 +137,23 @@ curl -i http://localhost:8080/api/auth/register
 curl -i -X POST http://localhost:8080/api/auth/register
 
 
-###
-
+### Registration v2
 POST http://localhost:8080/api/auth/register
 Content-Type: application/json
 
 {"username":"dyle","password":"password123"}
-###
+
+
+### Login v2
 POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
 {"username":"dyle","password":"password123"}
+
+
+#### Profile without token
+
+GET http://localhost:8080/api/test/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkeWxlIiwiaWF0IjoxNzkzMzg1MTA0LCJleHAiOjE3OTM0NzE1MDR9.RAVyugtkht2CA6a6tmGm2X6wY7Z6KqarKUtagHePpAw
+
